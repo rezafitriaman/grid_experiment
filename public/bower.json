@@ -1,0 +1,18 @@
+{
+  "name": "sass oefening",
+  "authors": [
+    "rezafitriaman <rezafitriaman@gmail.com>"
+  ],
+  "description": "oefening",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
