@@ -10,12 +10,22 @@ var gulp = require('gulp'),
 	concatCss = require('gulp-concat-css'),
 	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps'),
-	postcss = require('gulp-postcss');
+	postcss = require('gulp-postcss'),
+	order = require("gulp-order");
 
 /*task*/
 gulp.task('concat', function() {
 	console.log('concat work!');
   	return gulp.src('src/js/*.js')
+  	.pipe(order([
+	    "TweenLite.js",
+	    "TimelineLite.js",
+	    "CSSPlugin.js",
+	    "ScrollMagic.js",
+	    "debug.addIndicators.js",
+	    "animation.gsap.js",
+	    "main.js"
+	  ]))
     .pipe(concat('all.js'))
     .pipe(gulp.dest('public/js'))
     .pipe(reload({stream:true}));

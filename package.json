@@ -1,23 +1,35 @@
 {
-  "name": "grid",
+  "name": "grid_experiment",
   "version": "1.0.0",
-  "description": "",
+  "description": "Try grid out",
   "main": "gulpfile.js",
   "dependencies": {
     "browser-sync": "^2.18.13",
     "gulp-concat": "^2.6.1",
+    "gulp-cli": "^1.4.0",
+    "autoprefixer": "^9.2.1",
     "gulp-concat-css": "^2.3.0",
+    "gulp-order": "^1.2.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-uglify": "^3.0.0",
-    "gulp-cli": "^1.4.0"
+    "postcss": "^7.0.5"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rezafitriaman/grid_experiment.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rezafitriaman/grid_experiment/issues"
+  },
+  "homepage": "https://github.com/rezafitriaman/grid_experiment#readme"
 }
