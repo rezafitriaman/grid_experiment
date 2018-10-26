@@ -1,35 +1,78 @@
-.rc button:focus {
+.rc #header,
+.rd #header {
+  background-image: url("../../../../img/header_image.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+.rc #header .wrapper,
+.rd #header .wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px;
+  min-height: 200px;
+  color: white;
+}
+
+.rc #header .wrapper .devider,
+.rd #header .wrapper .devider {
+  width: 50px;
+  margin: 10px auto 15px;
+}
+
+.rc button:focus,
+.rd button:focus {
   text-decoration: none;
   outline: none;
   border: none;
   box-shadow: none;
 }
 
-.rc input:focus {
+.rc input:focus,
+.rd input:focus {
   outline: 0;
 }
 
-.rc p {
+.rc p,
+.rd p {
   line-height: 1.8rem;
   font-size: 1.2rem;
 }
 
-.rc a {
+.rc a,
+.rd a {
   text-decoration: none;
 }
 
-.rc #content-resource-center #header .wrapper .devider,
+.rc #header .wrapper .devider,
+.rd #header .wrapper .rc .devider,
 .rc #content-resource-center #inner-content .section-a .wrapper .devider,
 .rc #content-resource-center #inner-content .section-b .wrapper .devider,
 .rc #content-resource-center #inner-content .section-c .wrapper .devider,
 .rc #content-resource-center #inner-content .section-d .wrapper .devider,
-.rc #content-resource-center .section-e .wrapper .devider {
+.rc #content-resource-center .section-e .wrapper .devider,
+.rc #header .wrapper .rd .devider,
+.rd #header .wrapper .devider,
+.rd .rc #content-resource-center #inner-content .section-a .wrapper .devider,
+.rc #content-resource-center #inner-content .section-a .wrapper .rd .devider,
+.rd .rc #content-resource-center #inner-content .section-b .wrapper .devider,
+.rc #content-resource-center #inner-content .section-b .wrapper .rd .devider,
+.rd .rc #content-resource-center #inner-content .section-c .wrapper .devider,
+.rc #content-resource-center #inner-content .section-c .wrapper .rd .devider,
+.rd .rc #content-resource-center #inner-content .section-d .wrapper .devider,
+.rc #content-resource-center #inner-content .section-d .wrapper .rd .devider,
+.rd .rc #content-resource-center .section-e .wrapper .devider,
+.rc #content-resource-center .section-e .wrapper .rd .devider {
   display: inline-block;
   height: 3px;
   background-color: #cc0000;
 }
 
-.rc .btn-red {
+.rc .btn-red,
+.rd .btn-red {
   width: 100%;
   background-color: #cc0000;
   color: white;
@@ -41,11 +84,13 @@
   border: 0px solid transparent;
 }
 
-.rc .btn-red span {
+.rc .btn-red span,
+.rd .btn-red span {
   position: relative;
 }
 
-.rc .btn-red::before {
+.rc .btn-red::before,
+.rd .btn-red::before {
   content: '';
   display: block;
   position: absolute;
@@ -60,30 +105,12 @@
 .rc .btn-red:hover::before,
 .rc .btn-red:visited::before,
 .rc .btn-red:focus::before,
-.rc .btn-red:active::before {
+.rc .btn-red:active::before,
+.rd .btn-red:hover::before,
+.rd .btn-red:visited::before,
+.rd .btn-red:focus::before,
+.rd .btn-red:active::before {
   width: 100%;
-}
-
-.rc #content-resource-center #header {
-  background-image: url("../../../../img/header_image.png");
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-}
-
-.rc #content-resource-center #header .wrapper {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 15px;
-  min-height: 200px;
-  color: white;
-}
-
-.rc #content-resource-center #header .wrapper .devider {
-  width: 50px;
-  margin: 10px auto 15px;
 }
 
 .rc #content-resource-center #secondNav {
@@ -173,33 +200,38 @@
 /* Small Devices, Tablets */
 
 @media only screen and (min-width: 768px) {
-  .rc .navbar-expand-lg {
+  .rc .navbar-expand-lg,
+  .rd .navbar-expand-lg {
     position: fixed;
     width: 100%;
     z-index: 9;
   }
 
-  .rc #content-resource-center .grid {
+  .rc #content-resource-center .grid,
+  .rd #content-resource-center .grid {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr (minmax(auto, 10em))[8] 1fr 1fr;
     grid-template-columns: 1fr 1fr repeat(8, minmax(auto, 10em)) 1fr 1fr;
   }
 
-  .rc #content-resource-center #header {
+  .rc #content-resource-center #header,
+  .rd #content-resource-center #header {
     position: fixed;
     width: 100%;
     margin-top: 55px;
     z-index: 9;
   }
 
-  .rc #content-resource-center #header .wrapper {
+  .rc #content-resource-center #header .wrapper,
+  .rd #content-resource-center #header .wrapper {
     -ms-grid-column: 3;
     -ms-grid-column-span: 8;
     grid-column: 3 / 11;
   }
 
-  .rc #content-resource-center #secondNav {
+  .rc #content-resource-center #secondNav,
+  .rd #content-resource-center #secondNav {
     display: -ms-grid;
     display: grid;
     min-height: 60px;
@@ -212,7 +244,8 @@
     border-bottom: 1px solid #cfcfcf;
   }
 
-  .rc #content-resource-center #secondNav .wrapper {
+  .rc #content-resource-center #secondNav .wrapper,
+  .rd #content-resource-center #secondNav .wrapper {
     -ms-grid-column: 3;
     -ms-grid-column-span: 8;
     grid-column: 3 / 11;
@@ -224,19 +257,23 @@
     align-items: center;
   }
 
-  .rc #content-resource-center #secondNav .wrapper li:first-child {
+  .rc #content-resource-center #secondNav .wrapper li:first-child,
+  .rd #content-resource-center #secondNav .wrapper li:first-child {
     margin-left: 15px;
   }
 
-  .rc #content-resource-center #secondNav .wrapper li:last-child {
+  .rc #content-resource-center #secondNav .wrapper li:last-child,
+  .rd #content-resource-center #secondNav .wrapper li:last-child {
     margin-right: 15px;
   }
 
-  .rc #content-resource-center #secondNav .wrapper li {
+  .rc #content-resource-center #secondNav .wrapper li,
+  .rd #content-resource-center #secondNav .wrapper li {
     height: 100%;
   }
 
-  .rc #content-resource-center #secondNav .wrapper li a {
+  .rc #content-resource-center #secondNav .wrapper li a,
+  .rd #content-resource-center #secondNav .wrapper li a {
     color: gray;
     font-weight: 600;
     opacity: 0.6;
@@ -249,7 +286,9 @@
   }
 
   .rc #content-resource-center #secondNav .wrapper li a:hover,
-  .rc #content-resource-center #secondNav .wrapper li .active {
+  .rc #content-resource-center #secondNav .wrapper li .active,
+  .rd #content-resource-center #secondNav .wrapper li a:hover,
+  .rd #content-resource-center #secondNav .wrapper li .active {
     color: black;
     opacity: 1;
     border-bottom: 2px solid #cc0000;
@@ -257,26 +296,34 @@
 
   .rc #content-resource-center #inner-content .title,
   .rc #content-resource-center #inner-content .d-left,
-  .rc #content-resource-center #inner-content .d-right {
+  .rc #content-resource-center #inner-content .d-right,
+  .rd #content-resource-center #inner-content .title,
+  .rd #content-resource-center #inner-content .d-left,
+  .rd #content-resource-center #inner-content .d-right {
     opacity: 0;
   }
 
-  .rc #content-resource-center #inner-content .section-a {
+  .rc #content-resource-center #inner-content .section-a,
+  .rd #content-resource-center #inner-content .section-a {
     height: 100vh;
     margin-top: 85px;
   }
 
-  .rc #content-resource-center #inner-content .section-c {
+  .rc #content-resource-center #inner-content .section-c,
+  .rd #content-resource-center #inner-content .section-c {
     height: 100vh;
   }
 
-  .rc #content-resource-center #inner-content .section-c .btn-red {
+  .rc #content-resource-center #inner-content .section-c .btn-red,
+  .rd #content-resource-center #inner-content .section-c .btn-red {
     width: 270px;
     opacity: 0;
   }
 
   .rc #content-resource-center #inner-content .section-a,
-  .rc #content-resource-center #inner-content .section-c {
+  .rc #content-resource-center #inner-content .section-c,
+  .rd #content-resource-center #inner-content .section-a,
+  .rd #content-resource-center #inner-content .section-c {
     -ms-grid-column: 3;
     -ms-grid-column-span: 8;
     grid-column: 3 / 11;
@@ -287,7 +334,9 @@
   }
 
   .rc #content-resource-center #inner-content .section-a .title-box,
-  .rc #content-resource-center #inner-content .section-c .title-box {
+  .rc #content-resource-center #inner-content .section-c .title-box,
+  .rd #content-resource-center #inner-content .section-a .title-box,
+  .rd #content-resource-center #inner-content .section-c .title-box {
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
     grid-column: 1 / 5;
@@ -298,12 +347,16 @@
   }
 
   .rc #content-resource-center #inner-content .section-a .title-box .sub,
-  .rc #content-resource-center #inner-content .section-c .title-box .sub {
+  .rc #content-resource-center #inner-content .section-c .title-box .sub,
+  .rd #content-resource-center #inner-content .section-a .title-box .sub,
+  .rd #content-resource-center #inner-content .section-c .title-box .sub {
     margin-bottom: 35px;
   }
 
   .rc #content-resource-center #inner-content .section-a .img-box,
-  .rc #content-resource-center #inner-content .section-c .img-box {
+  .rc #content-resource-center #inner-content .section-c .img-box,
+  .rd #content-resource-center #inner-content .section-a .img-box,
+  .rd #content-resource-center #inner-content .section-c .img-box {
     -ms-grid-column: 5;
     -ms-grid-column-span: 4;
     grid-column: 5 / 9;
@@ -317,7 +370,9 @@
   }
 
   .rc #content-resource-center #inner-content .section-a .text-box,
-  .rc #content-resource-center #inner-content .section-c .text-box {
+  .rc #content-resource-center #inner-content .section-c .text-box,
+  .rd #content-resource-center #inner-content .section-a .text-box,
+  .rd #content-resource-center #inner-content .section-c .text-box {
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
     grid-column: 1 / 5;
@@ -325,7 +380,9 @@
   }
 
   .rc #content-resource-center #inner-content .section-b,
-  .rc #content-resource-center #inner-content .section-d {
+  .rc #content-resource-center #inner-content .section-d,
+  .rd #content-resource-center #inner-content .section-b,
+  .rd #content-resource-center #inner-content .section-d {
     height: 100vh;
     -ms-grid-column: 3;
     -ms-grid-column-span: 8;
@@ -338,7 +395,9 @@
   }
 
   .rc #content-resource-center #inner-content .section-b .title-box,
-  .rc #content-resource-center #inner-content .section-d .title-box {
+  .rc #content-resource-center #inner-content .section-d .title-box,
+  .rd #content-resource-center #inner-content .section-b .title-box,
+  .rd #content-resource-center #inner-content .section-d .title-box {
     -ms-grid-column: 5;
     -ms-grid-column-span: 4;
     grid-column: 5 / 9;
@@ -349,17 +408,23 @@
   }
 
   .rc #content-resource-center #inner-content .section-b .title-box .devider,
-  .rc #content-resource-center #inner-content .section-d .title-box .devider {
+  .rc #content-resource-center #inner-content .section-d .title-box .devider,
+  .rd #content-resource-center #inner-content .section-b .title-box .devider,
+  .rd #content-resource-center #inner-content .section-d .title-box .devider {
     margin-left: auto;
   }
 
   .rc #content-resource-center #inner-content .section-b .title-box .sub,
-  .rc #content-resource-center #inner-content .section-d .title-box .sub {
+  .rc #content-resource-center #inner-content .section-d .title-box .sub,
+  .rd #content-resource-center #inner-content .section-b .title-box .sub,
+  .rd #content-resource-center #inner-content .section-d .title-box .sub {
     margin-bottom: 35px;
   }
 
   .rc #content-resource-center #inner-content .section-b .img-box,
-  .rc #content-resource-center #inner-content .section-d .img-box {
+  .rc #content-resource-center #inner-content .section-d .img-box,
+  .rd #content-resource-center #inner-content .section-b .img-box,
+  .rd #content-resource-center #inner-content .section-d .img-box {
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
     grid-column: 1 / 5;
@@ -373,14 +438,17 @@
   }
 
   .rc #content-resource-center #inner-content .section-b .text-box,
-  .rc #content-resource-center #inner-content .section-d .text-box {
+  .rc #content-resource-center #inner-content .section-d .text-box,
+  .rd #content-resource-center #inner-content .section-b .text-box,
+  .rd #content-resource-center #inner-content .section-d .text-box {
     -ms-grid-column: 5;
     -ms-grid-column-span: 4;
     grid-column: 5 / 9;
     margin-top: 0;
   }
 
-  .rc .section-e .wrapper {
+  .rc .section-e .wrapper,
+  .rd .section-e .wrapper {
     -ms-grid-column: 3;
     -ms-grid-column-span: 8;
     grid-column: 3 / 11;

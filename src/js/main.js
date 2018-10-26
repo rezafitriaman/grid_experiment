@@ -1,4 +1,18 @@
-(function() {
+function desktopOrMobile(x) {
+    if (x.matches) { // If media query matches
+     	//do nothing
+    } else {
+        smoothscroll();
+        animateSection();
+        onScrollActive();
+    }
+}
+
+var x = window.matchMedia("(max-width: 768px)")
+desktopOrMobile(x) // Call listener function at run time
+x.addListener(desktopOrMobile) // Attach listener function on state changes
+
+function smoothscroll() {
 	//select target
 	var navTarget = document.getElementById('secondNav').getElementsByTagName('a');
 
@@ -7,27 +21,15 @@
 		//on click
 		navTarget[i].addEventListener("click", function (e) {
 			e.preventDefault()
-			//this is the grandparent of a
-			/*var links = this.closest('.wrapper').getElementsByTagName('a');*/
 
-			//loop through the links and delete active if contain it
-			/*for (var i = 0; i < links.length; i++) {
-				
-				if(links[i].classList.contains('active')) {
-					links[i].classList.remove('active')
-				}
-			}*/
-			//then add active on the target click
-			/*this.classList.add('active');*/
-			//get the attr href then place it on get elementBy
 			var elmTarget = this.getAttribute('href').split('#')[1];
 			//scroll to the id target
 			document.getElementById(elmTarget).scrollIntoView({ block: 'center', behavior: 'smooth' });
 		});
 	}
-})();
+};
 
-(function() {
+function animateSection() {
 	var section_A = document.getElementsByClassName('section-a')[0];
 	var section_B = document.getElementsByClassName('section-b')[0];
 	var section_C = document.getElementsByClassName('section-c')[0];
@@ -110,9 +112,9 @@
 	.setTween(move_Sec_D)
 	.reverse(false)
     .addTo(controller); // assign the scene to the controller
-})();
+};
 
-(function() {
+function onScrollActive() {
 	var navTarget = document.getElementById('secondNav').getElementsByTagName('a');
 
 	var section_A = document.getElementsByClassName('section-a')[0];
@@ -127,42 +129,6 @@
 	var e_learning = document.getElementById('secondNav').getElementsByTagName('a')[1];
 	var training_certification = document.getElementById('secondNav').getElementsByTagName('a')[2];
 	var client_support = document.getElementById('secondNav').getElementsByTagName('a')[3];
-	
-	/*new ScrollMagic.Scene({
-		offset: wh*0.2,
-		triggerElement: section_A
-
-    })
-	.setClassToggle(help_center, 'active')
-    .addTo(controller); 
-
-	new ScrollMagic.Scene({
-		offset: wh*0.2,
-		triggerElement: section_B
-
-    })
-	.setClassToggle(e_learning, 'active')
-    .addTo(controller); 
-
-	new ScrollMagic.Scene({
-		offset: wh*0.2,
-		triggerElement: section_C
-
-    })
-	.setClassToggle(training_certification, 'active')
-    .addTo(controller); 
-
-	new ScrollMagic.Scene({
-		offset: wh*0.2,
-		triggerElement: section_D
-
-    })
-	.setClassToggle(client_support, 'active')
-    .addTo(controller);*/
-
-
-   /* new ScrollMagic.Scene().on('start', function () {console.log("passed trigger");})
-    .addTo(ctrl);*/
 
     new ScrollMagic.Scene({ triggerElement: section_A, offset: wh*0.5 })
         .on('start', function () {
@@ -180,7 +146,9 @@
         .addIndicators()
         .addTo(controller);
 
-    new ScrollMagic.Scene({ triggerElement: section_B, offset: wh*0.3 })
+    //section B and C Need 2 start triggers. on scroll down and on scroll up add class active
+    //start section_B
+    new ScrollMagic.Scene({ triggerElement: section_B, offset: wh*0.326 })
         .on('start', function () {
 
         	for (var i = 0; i < navTarget.length; i++) {
@@ -196,7 +164,25 @@
         .addIndicators()
         .addTo(controller);
 
-    new ScrollMagic.Scene({ triggerElement: section_C, offset: wh*0.3 })
+     new ScrollMagic.Scene({ triggerElement: section_B, offset: wh*0.6 })
+        	.on('start', function () {
+        	console.log('end')
+        	for (var i = 0; i < navTarget.length; i++) {
+        		navTarget[i].classList.remove('active')
+        	}
+        	if(!e_learning.classList.contains('active')) {
+        		e_learning.classList.add('active')
+        	}else {
+        		e_learning.classList.remove('active')
+        	}
+            
+        })
+        .addIndicators()
+        .addTo(controller);
+    //end section_B
+
+    //start section_C
+    new ScrollMagic.Scene({ triggerElement: section_C, offset: wh*0.32 })
         .on('start', function () {
 
         	for (var i = 0; i < navTarget.length; i++) {
@@ -212,7 +198,24 @@
         .addIndicators()
         .addTo(controller);
 
-    new ScrollMagic.Scene({ triggerElement: section_D, offset: wh*0.3 })
+    new ScrollMagic.Scene({ triggerElement: section_C, offset: wh*0.6 })
+        .on('start', function () {
+
+        	for (var i = 0; i < navTarget.length; i++) {
+        		navTarget[i].classList.remove('active')
+        	}
+        	if(!training_certification.classList.contains('active')) {
+        		training_certification.classList.add('active')
+        	}else {
+        		training_certification.classList.remove('active')
+        	}
+            
+        })
+        .addIndicators()
+        .addTo(controller);
+    //end section_C
+
+    new ScrollMagic.Scene({ triggerElement: section_D, offset: wh*0.321})
         .on('start', function () {
 
         	for (var i = 0; i < navTarget.length; i++) {
@@ -228,5 +231,4 @@
         })
         .addIndicators()
         .addTo(controller);
-
-})();
+};
